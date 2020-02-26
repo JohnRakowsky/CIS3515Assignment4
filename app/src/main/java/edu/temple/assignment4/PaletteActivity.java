@@ -2,6 +2,7 @@ package edu.temple.assignment4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -41,6 +42,17 @@ public class PaletteActivity extends AppCompatActivity implements AdapterView.On
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+
+        Intent launchActivityIntent = new Intent(PaletteActivity.this, CanvasActivity.class);
+
+
+        String colorString = colors.get(position);
+
+        launchActivityIntent.putExtra("message_key", colorString);
+
+        //  Launch the activity using the created intent. Fire and Forget method.
+        startActivity(launchActivityIntent);
 
     }
 
