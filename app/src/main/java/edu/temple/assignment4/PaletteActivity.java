@@ -12,13 +12,14 @@ import java.util.ArrayList;
 
 public class PaletteActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-
+    int i = 0;
     ArrayList<String> colors = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.setTitle("Pallete Activity");
 
         colors.add("White");
         colors.add("Red");
@@ -42,18 +43,18 @@ public class PaletteActivity extends AppCompatActivity implements AdapterView.On
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        i++;
+        if(i != 1) {
+            Intent launchActivityIntent = new Intent(PaletteActivity.this, CanvasActivity.class);
 
 
-        Intent launchActivityIntent = new Intent(PaletteActivity.this, CanvasActivity.class);
+            String colorString = colors.get(position);
 
+            launchActivityIntent.putExtra("message_key", colorString);
 
-        String colorString = colors.get(position);
-
-        launchActivityIntent.putExtra("message_key", colorString);
-
-        //  Launch the activity using the created intent. Fire and Forget method.
-        startActivity(launchActivityIntent);
-
+            //  Launch the activity using the created intent. Fire and Forget method.
+            startActivity(launchActivityIntent);
+        }
     }
 
     @Override
