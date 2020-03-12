@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ColorAdaptor extends BaseAdapter {
     Context context;
@@ -18,6 +19,8 @@ public class ColorAdaptor extends BaseAdapter {
     public ColorAdaptor(Context c, String[] co){
         this.context = c;
         this.colors = co;
+
+
     }
 
     @Override
@@ -38,13 +41,37 @@ public class ColorAdaptor extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        String language = Locale.getDefault().getDisplayLanguage();
 
-        TextView newview = new TextView(context);
+        if(language == "es"){
+            String[] colorsen = new String[10];
 
-        newview.setText(colors[position]);
-        newview.setBackgroundColor(Color.parseColor(colors[position]));
+            colorsen[0] = "White";
+            colorsen[0] = "Red";
+            colorsen[0] = "Blue";
+            colorsen[0] = "Yellow";
+            colorsen[0] = "Cyan";
+            colorsen[0] = "Gray";
+            colorsen[0] = "Magenta";
+            colorsen[0] = "Silver";
+            colorsen[0] = "Teal";
+            colorsen[0] = "Green";
 
-        return newview;
+            TextView newview = new TextView(context);
+
+            newview.setText(colors[position]);
+            newview.setBackgroundColor(Color.parseColor(colorsen[position]));
+
+            return newview;
+        }
+        else {
+            TextView newview = new TextView(context);
+
+            newview.setText(colors[position]);
+            newview.setBackgroundColor(Color.parseColor(colors[position]));
+
+            return newview;
+        }
     }
 
 
