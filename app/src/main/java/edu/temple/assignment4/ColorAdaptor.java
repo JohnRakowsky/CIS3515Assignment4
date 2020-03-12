@@ -12,10 +12,10 @@ import java.util.ArrayList;
 
 public class ColorAdaptor extends BaseAdapter {
     Context context;
-    ArrayList<String> colors;
+    String[] colors;
     LayoutInflater inflater;
 
-    public ColorAdaptor(Context c, ArrayList<String> co){
+    public ColorAdaptor(Context c, String[] co){
         this.context = c;
         this.colors = co;
     }
@@ -23,12 +23,12 @@ public class ColorAdaptor extends BaseAdapter {
     @Override
     public int getCount() {
 
-        return colors.size();
+        return colors.length;
     }
 
     @Override
     public Object getItem(int position) {
-        return colors.get(position);
+        return colors[position];
     }
 
     @Override
@@ -41,8 +41,8 @@ public class ColorAdaptor extends BaseAdapter {
 
         TextView newview = new TextView(context);
 
-        newview.setText(colors.get(position));
-        newview.setBackgroundColor(Color.parseColor(colors.get(position)));
+        newview.setText(colors[position]);
+        newview.setBackgroundColor(Color.parseColor(colors[position]));
 
         return newview;
     }

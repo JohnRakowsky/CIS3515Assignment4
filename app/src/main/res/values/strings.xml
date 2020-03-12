@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Assignment4</string>
+
+    <string-array name="colorsarray">
+        <item>White</item>
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Yellow</item>
+        <item>Cyan</item>
+        <item>Gray</item>
+        <item>Magenta</item>
+        <item>Silver</item>
+        <item>Teal</item>
+        <item>Green</item>
+    </string-array>
+
+
+
+
+
 </resources>
