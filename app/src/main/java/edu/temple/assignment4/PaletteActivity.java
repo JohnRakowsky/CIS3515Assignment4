@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,7 +12,7 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 
-public class PaletteActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class PaletteActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, PalleteFragment.OnFragmentInteractionListener {
 
     int i = 0;
 
@@ -22,15 +23,23 @@ public class PaletteActivity extends AppCompatActivity implements AdapterView.On
         setContentView(R.layout.activity_main);
         this.setTitle("Pallete Activity");
 
-        Resources res = getResources();
-        String[] colors = res.getStringArray(R.array.colorsarray);
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        spinner.setOnItemSelectedListener(this);
+        PalleteFragment pallete = PalleteFragment.newInstance("Test");
 
-        ColorAdaptor adaptor = new ColorAdaptor(this, colors );
+        getSupportFragmentManager().beginTransaction().add(R.id.container1, pallete).commit();
 
-        spinner.setAdapter(adaptor);
+
+
+
+        //Resources res = getResources();
+        //String[] colors = res.getStringArray(R.array.colorsarray);
+
+        //Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        //spinner.setOnItemSelectedListener(this);
+
+        //ColorAdaptor adaptor = new ColorAdaptor(this, colors );
+
+        //spinner.setAdapter(adaptor);
 
     }
 
@@ -56,4 +65,16 @@ public class PaletteActivity extends AppCompatActivity implements AdapterView.On
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+    public void buttonClicked(int id) {
+
+
+    }
+
+
+
 }
